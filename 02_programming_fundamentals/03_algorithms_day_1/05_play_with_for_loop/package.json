@@ -1,0 +1,13 @@
+{
+  "name": "05_play_with_for_loop",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "eslint --ext .js,.ts . && jest"
+  },
+  "devDependencies": {
+    "eslint": "7.4.0",
+    "jest": "26.1.0"
+  }
+}

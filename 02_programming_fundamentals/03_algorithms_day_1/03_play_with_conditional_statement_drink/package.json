@@ -1,0 +1,14 @@
+{
+  "name": "04_play_with_conditional_statement_drive",
+  "version": "1.0.0",
+  "main": "./src/01_can_i_rent_a_car.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/01_can_i_rent_a_car.js",
+    "test": "eslint --ext .js,.ts . && jest"
+  },
+  "devDependencies": {
+    "eslint": "7.4.0",
+    "jest": "26.1.0"
+  }
+}
