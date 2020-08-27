@@ -23,6 +23,7 @@
     "typescript": "3.9.7"
   },
   "eslintConfig": {
+    "root": true,
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 6,

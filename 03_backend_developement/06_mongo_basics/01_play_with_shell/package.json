@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "ts-node ./src/index.ts",
-    "test": "eslint --ext .js,.ts . && jest"
+    "test": "eslint --ext .js,.ts . && jest --runInBand"
   },
   "devDependencies": {
     "@types/mongodb": "3.5.25",
@@ -23,6 +23,7 @@
     "typescript": "3.9.7"
   },
   "eslintConfig": {
+    "root": true,
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 6,

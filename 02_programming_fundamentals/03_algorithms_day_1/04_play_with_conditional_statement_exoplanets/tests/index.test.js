@@ -1,5 +1,5 @@
 const path = require("path");
-const readcode = require("./utils/readcode");
+const readcode = require("./utils/readCode");
 const planets = require("./exoplanetsData");
 
 let code;

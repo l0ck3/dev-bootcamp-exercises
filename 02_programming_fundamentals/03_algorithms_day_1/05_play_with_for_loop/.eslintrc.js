@@ -2,6 +2,7 @@
 // you can visite https://eslint.org/docs/rules/RULE_NAME
 
 module.exports = {
+  root: true,
   env: {
     es6: true,
     node: true,

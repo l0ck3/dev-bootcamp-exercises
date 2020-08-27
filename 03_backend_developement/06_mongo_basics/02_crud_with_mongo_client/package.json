@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "mongo mongo-basics -u mongo-basics-app -p password < utils/resetDatabase.js && ts-node ./src/index.ts",
-    "test": "eslint --ext .js,.ts . && jest"
+    "test": "eslint --ext .js,.ts . && jest --runInBand"
   },
   "devDependencies": {
     "@types/jest": "26.0.9",
@@ -23,6 +23,7 @@
     "typescript": "3.9.7"
   },
   "eslintConfig": {
+    "root": true,
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 6,

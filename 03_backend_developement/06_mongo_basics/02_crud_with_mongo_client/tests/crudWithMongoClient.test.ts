@@ -12,9 +12,15 @@ import { updateManyCountries } from "../src/updateManyCountries";
 import { updateOneCountry } from "../src/updateOneCountry";
 
 const databaseUrl =
+  process.env.MONGODB_DATABASE_URL ||
   "mongodb://mongo-basics-app:password@localhost:27016/mongo-basics";
 
-const baseOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+const baseOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  connectTimeoutMS: 500,
+  serverSelectionTimeoutMS: 500
+};
 
 async function initDatabase(): Promise<mongoDb.MongoClient> {
   return new Promise((resolve, reject) => {
@@ -38,14 +44,24 @@ describe("Play with shell", () => {
 
   const countryKeys = ["_id", "name", "capital", "continent"];
 
-  beforeEach(async () => {
-    client = await initDatabase();
-    db = client.db();
-    await dropAll(db);
-    await db.collection("worldAtlas").insertMany(countries);
+  beforeAll(async () => {
+    try {
+      client = await initDatabase();
+      db = client.db();
+    } catch(error) {
+      console.log("Can't log to MongoDB Server, did you start it?");
+    }
   });
-  afterEach(async () => {
-    await client.close();
+  beforeEach(async () => {
+    if (db) {
+      await dropAll(db);
+      await db.collection("worldAtlas").insertMany(countries);
+    }
+  })
+  afterAll(async () => {
+    if (client) {
+      await client.close();
+    }
   });
 
   describe("findOneCountry", () => {

@@ -24,6 +24,7 @@
   },
   "dependencies": {},
   "eslintConfig": {
+    "root": true,
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 6,

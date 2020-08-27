@@ -22,6 +22,7 @@
     "request": "^2.88.2"
   },
   "eslintConfig": {
+    "root": true,
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
       "ecmaVersion": 6,
