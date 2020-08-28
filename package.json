@@ -55,6 +55,7 @@
     "03_backend_developement/06_mongo_basics/01_play_with_shell",
     "03_backend_developement/06_mongo_basics/02_crud_with_mongo_client",
     "03_backend_developement/06_mongo_basics/03_data_validation",
+    "03_backend_developement/06_mongo_basics/04_db_utils",
     "13_extras/01_sql_part_1/01_marathon",
     "13_extras/01_sql_part_1/02_loyalty_points",
     "13_extras/01_sql_part_1/03_magic_gate",
