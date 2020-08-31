@@ -24,7 +24,12 @@ const testDatabaseUrl =
   process.env.MONGODB_DATABASE_URL ||
   "mongodb://mongo-basics-app:password@localhost:27017/mongo-basics";
 
-const testOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+const testOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  connectTimeoutMS: 500,
+  serverSelectionTimeoutMS: 500
+};
 
 async function initTestDatabase(): Promise<mongoDb.MongoClient> {
   return new Promise((resolve, reject) => {
@@ -46,16 +51,26 @@ describe("DB utils", () => {
   let client: mongoDb.MongoClient;
   let db: mongoDb.Db;
 
-  beforeEach(async () => {
-    client = await initTestDatabase();
-    db = client.db();
-    await dropAll(db);
-    await db.createCollection<User>("users").then((userCollection) => {
-      userCollection.insertMany(users);
-    });
+  beforeAll(async () => {
+    try {
+      client = await initTestDatabase();
+      db = client.db();
+    } catch(error) {
+      console.log("Can't log to MongoDB Server, did you start it?");
+    }
   });
-  afterEach(async () => {
-    await client.close();
+  beforeEach(async () => {
+    if (db) {
+      await dropAll(db);
+      await db.createCollection<User>("users").then((userCollection) => {
+        userCollection.insertMany(users);
+      });
+    }
+  })
+  afterAll(async () => {
+    if (client) {
+      await client.close();
+    }
   });
 
   describe("#initDatabase", () => {
