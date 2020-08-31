@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "eslint --ext .js . && node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "eslint --ext .js . && node --experimental-vm-modules node_modules/.bin/jest"
   },
   "type": "module",
   "devDependencies": {

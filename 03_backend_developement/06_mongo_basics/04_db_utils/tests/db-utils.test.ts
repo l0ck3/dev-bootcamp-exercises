@@ -21,7 +21,8 @@ import { updateManyDocuments } from "../src/updateManyDocuments";
 import { updateOneDocument } from "../src/updateOneDocument";
 
 const testDatabaseUrl =
-  "mongodb://mongo-basics-app:password@localhost:27016/mongo-basics";
+  process.env.MONGODB_DATABASE_URL ||
+  "mongodb://mongo-basics-app:password@localhost:27017/mongo-basics";
 
 const testOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 
