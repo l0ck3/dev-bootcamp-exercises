@@ -51,12 +51,12 @@ You have to code each operation in separated files:
 - `deleteOneCountry.ts`:
 
   Delete `France` from the `worldAtlas` collection. It will return `true` in case of success, `false` otherwise.
-  > 🔎 success feedback can be found in the query return
+  > 🔎 success feedback can be found in the query return: if `deleteCount === 1` it means the deletion was successful
 
 - `deleteManyCountries.ts`:
 
   Delete all the `European` countries from the `worldAtlas` collection. It will return `true` in case of success, `false` otherwise.
-  > 🔎 success feedback can be found in the query return
+ > 🔎 success feedback can be found in the query return: if `result.n === deleteCount` and `deleteCount > 0` it means the deletion was successful
 
 Each of those functions should take a `mongo.Db` as argument.
 

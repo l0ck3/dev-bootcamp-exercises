@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "./src/index.ts",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "start": "ts-node ./src/index.ts",
     "test": "eslint --ext .js,.ts . && jest --runInBand"
